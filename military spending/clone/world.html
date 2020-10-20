@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-cebca42b34399c58714ec2565084ce2f"}, "mark": "trail", "encoding": {"color": {"value": "red"}, "size": {"type": "quantitative", "field": "World"}, "tooltip": [{"type": "quantitative", "field": "Year"}, {"type": "quantitative", "field": "World"}], "x": {"type": "nominal", "field": "Year"}, "y": {"type": "quantitative", "axis": {"title": "Amount US Billions $"}, "field": "World"}}, "height": 450, "selection": {"selector001": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "title": "Annual Global Military Spending", "width": 720, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-cebca42b34399c58714ec2565084ce2f": [{"World": 364.0, "Year": 1980}, {"World": 400.0, "Year": 1981}, {"World": 448.0, "Year": 1984}, {"World": 474.0, "Year": 1985}, {"World": 520.0, "Year": 1986}, {"World": 588.0, "Year": 1987}, {"World": 627.0, "Year": 1988}, {"World": 645.0, "Year": 1989}, {"World": 700.0, "Year": 1990}, {"World": 685.0, "Year": 1991}, {"World": 717.0, "Year": 1992}, {"World": 686.0, "Year": 1993}, {"World": 695.0, "Year": 1994}, {"World": 717.0, "Year": 1995}, {"World": 716.0, "Year": 1996}, {"World": 714.0, "Year": 1997}, {"World": 696.0, "Year": 1998}, {"World": 709.0, "Year": 1999}, {"World": 730.0, "Year": 2000}, {"World": 742.0, "Year": 2001}, {"World": 802.0, "Year": 2002}, {"World": 937.0, "Year": 2003}, {"World": 1060.0, "Year": 2004}, {"World": 1150.0, "Year": 2005}, {"World": 1190.0, "Year": 2006}, {"World": 1320.0, "Year": 2007}, {"World": 1490.0, "Year": 2008}, {"World": 1550.0, "Year": 2009}, {"World": 1630.0, "Year": 2010}, {"World": 1730.0, "Year": 2011}, {"World": 1740.0, "Year": 2012}, {"World": 1740.0, "Year": 2013}, {"World": 1740.0, "Year": 2014}, {"World": 1640.0, "Year": 2015}, {"World": 1630.0, "Year": 2016}, {"World": 1700.0, "Year": 2017}, {"World": 1780.0, "Year": 2018}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

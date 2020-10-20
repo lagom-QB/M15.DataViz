@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-03d286dd760b7df00cf7c22fb7d89877"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Country"}, "tooltip": [{"type": "nominal", "field": "Country"}, {"type": "quantitative", "field": "2018 Billion $"}], "x": {"type": "nominal", "field": "Country"}, "y": {"type": "quantitative", "field": "2018 Billion $"}}, "height": 450, "selection": {"selector002": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "title": "Top 20 Countries and Spendings in 2018", "width": 720, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-03d286dd760b7df00cf7c22fb7d89877": [{"2018 Billion $": 649.0, "Country": "United States"}, {"2018 Billion $": 250.0, "Country": "China"}, {"2018 Billion $": 67.554666667, "Country": "Saudi Arabia"}, {"2018 Billion $": 66.510289108, "Country": "India"}, {"2018 Billion $": 63.799676593, "Country": "France"}, {"2018 Billion $": 61.38754698, "Country": "Russian Federation"}, {"2018 Billion $": 49.997192521, "Country": "United Kingdom"}, {"2018 Billion $": 49.470627811, "Country": "Germany"}, {"2018 Billion $": 46.617954864, "Country": "Japan"}, {"2018 Billion $": 43.069973343, "Country": "South Korea"}, {"2018 Billion $": 27.807513898, "Country": "Italy"}, {"2018 Billion $": 27.766427104, "Country": "Brazil"}, {"2018 Billion $": 26.711834225, "Country": "Australia"}, {"2018 Billion $": 21.620598712, "Country": "Canada"}, {"2018 Billion $": 18.967113031, "Country": "Turkey"}, {"2018 Billion $": 18.248291491, "Country": "Spain"}, {"2018 Billion $": 15.946788601, "Country": "Israel"}, {"2018 Billion $": 13.194151137, "Country": "Iran"}, {"2018 Billion $": 11.596155291, "Country": "Poland"}, {"2018 Billion $": 11.375525626, "Country": "Pakistan"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

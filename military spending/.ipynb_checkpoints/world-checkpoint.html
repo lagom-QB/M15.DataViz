@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-52f57f078fecbbe95b812ed327c4f1b9"}, "mark": "line", "encoding": {"color": {"value": "#f3a583"}, "tooltip": [{"type": "quantitative", "field": "Year"}, {"type": "quantitative", "field": "World"}], "x": {"type": "quantitative", "axis": {"title": "Year"}, "field": "Year"}, "y": {"type": "quantitative", "axis": {"title": "Amount US Billions"}, "field": "World"}}, "height": 450, "selection": {"selector017": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 720, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-52f57f078fecbbe95b812ed327c4f1b9": [{"World": 364000000000.0, "Year": 1980}, {"World": 400000000000.0, "Year": 1981}, {"World": 448000000000.0, "Year": 1984}, {"World": 474000000000.0, "Year": 1985}, {"World": 520000000000.0, "Year": 1986}, {"World": 588000000000.0, "Year": 1987}, {"World": 627000000000.0, "Year": 1988}, {"World": 645000000000.0, "Year": 1989}, {"World": 700000000000.0, "Year": 1990}, {"World": 685000000000.0, "Year": 1991}, {"World": 717000000000.0, "Year": 1992}, {"World": 686000000000.0, "Year": 1993}, {"World": 695000000000.0, "Year": 1994}, {"World": 717000000000.0, "Year": 1995}, {"World": 716000000000.0, "Year": 1996}, {"World": 714000000000.0, "Year": 1997}, {"World": 696000000000.0, "Year": 1998}, {"World": 709000000000.0, "Year": 1999}, {"World": 730000000000.0, "Year": 2000}, {"World": 742000000000.0, "Year": 2001}, {"World": 802000000000.0, "Year": 2002}, {"World": 937000000000.0, "Year": 2003}, {"World": 1060000000000.0, "Year": 2004}, {"World": 1150000000000.0, "Year": 2005}, {"World": 1190000000000.0, "Year": 2006}, {"World": 1320000000000.0, "Year": 2007}, {"World": 1490000000000.0, "Year": 2008}, {"World": 1550000000000.0, "Year": 2009}, {"World": 1630000000000.0, "Year": 2010}, {"World": 1730000000000.0, "Year": 2011}, {"World": 1740000000000.0, "Year": 2012}, {"World": 1740000000000.0, "Year": 2013}, {"World": 1740000000000.0, "Year": 2014}, {"World": 1640000000000.0, "Year": 2015}, {"World": 1630000000000.0, "Year": 2016}, {"World": 1700000000000.0, "Year": 2017}, {"World": 1780000000000.0, "Year": 2018}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
